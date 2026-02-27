@@ -16,7 +16,7 @@ const HeroSection = () => {
           alt="Duain — Refined Islamic living"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/30" />
+        <div className="absolute inset-0 bg-charcoal/40" />
       </motion.div>
 
       {/* Floating geometric motif */}
@@ -49,7 +49,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="text-xs tracking-[0.4em] uppercase text-foreground/60 mb-6"
+          className="text-xs tracking-[0.4em] uppercase text-ivory/70 mb-6"
         >
           A Luxury Spiritual Design House
         </motion.p>
@@ -58,7 +58,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="font-editorial text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-[0.04em] leading-[1.1] text-foreground max-w-4xl"
+          className="font-editorial text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-[0.04em] leading-[1.1] text-ivory max-w-4xl"
         >
           Refined Essentials
           <br />
@@ -69,7 +69,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-8 text-sm md:text-base tracking-[0.08em] text-foreground/60 max-w-lg leading-relaxed"
+          className="mt-8 text-sm md:text-base tracking-[0.08em] text-ivory/70 max-w-lg leading-relaxed"
         >
           Designed with intention. Crafted with devotion.
           <br />
@@ -84,13 +84,13 @@ const HeroSection = () => {
         >
           <a
             href="#collections"
-            className="gold-shimmer px-10 py-4 border border-accent text-foreground text-xs tracking-[0.2em] uppercase hover:bg-accent/10 transition-all duration-400"
+            className="gold-shimmer px-10 py-4 border border-gold text-ivory text-xs tracking-[0.2em] uppercase hover:bg-gold/10 transition-all duration-400"
           >
             Explore Collection
           </a>
           <a
             href="#bestsellers"
-            className="px-10 py-4 border border-foreground/20 text-foreground/70 text-xs tracking-[0.2em] uppercase hover:border-foreground/40 hover:text-foreground transition-all duration-400"
+            className="px-10 py-4 border border-ivory/30 text-ivory/70 text-xs tracking-[0.2em] uppercase hover:border-ivory/50 hover:text-ivory transition-all duration-400"
           >
             Discover New Arrivals
           </a>
@@ -104,13 +104,13 @@ const HeroSection = () => {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] tracking-[0.3em] uppercase text-foreground/40">
+        <span className="text-[10px] tracking-[0.3em] uppercase text-ivory/40">
           Scroll
         </span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-px h-8 bg-foreground/20"
+          className="w-px h-8 bg-ivory/20"
         />
       </motion.div>
     </section>

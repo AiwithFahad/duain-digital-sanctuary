@@ -52,13 +52,13 @@ const CollectionCard = ({
           className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-foreground/10 group-hover:bg-foreground/20 transition-colors duration-500" />
+        <div className="absolute inset-0 bg-charcoal/30 group-hover:bg-charcoal/40 transition-colors duration-500" />
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
-        <p className="text-[10px] tracking-[0.3em] uppercase text-primary-foreground/70 mb-2">
+        <p className="text-[10px] tracking-[0.3em] uppercase text-ivory/70 mb-2">
           {collection.subtitle}
         </p>
-        <h3 className="font-editorial text-2xl md:text-3xl text-primary-foreground tracking-wide gold-underline">
+        <h3 className="font-editorial text-2xl md:text-3xl text-ivory tracking-wide gold-underline">
           {collection.title}
         </h3>
       </div>
