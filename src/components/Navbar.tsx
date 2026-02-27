@@ -1,11 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, ShoppingBag, Heart, Menu, X } from "lucide-react";
+import { Search, ShoppingBag, Heart, Menu, X, Moon, Sun } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useRamadan } from "@/contexts/RamadanContext";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isRamadan, toggleRamadan } = useRamadan();
 
-  const navLinks = ["Collections", "New Arrivals", "Ritual", "Craft", "About"];
+  const navLinks = [
+    { label: "Collections", to: "/shop" },
+    { label: "New Arrivals", to: "/new-arrivals" },
+    { label: "Ritual", to: "/shop" },
+    { label: "Craft", to: "/about" },
+    { label: "About", to: "/about" },
+  ];
 
   return (
     <>
@@ -19,17 +28,16 @@ const Navbar = () => {
           {/* Left nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.slice(0, 3).map((link) => (
-              <a
-                key={link}
-                href="#"
+              <Link
+                key={link.label}
+                to={link.to}
                 className="text-xs tracking-[0.2em] uppercase text-foreground/70 hover:text-foreground transition-colors duration-400 gold-underline"
               >
-                {link}
-              </a>
+                {link.label}
+              </Link>
             ))}
           </div>
 
-          {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(true)}
             className="md:hidden text-foreground/70 hover:text-foreground transition-colors"
@@ -38,26 +46,33 @@ const Navbar = () => {
           </button>
 
           {/* Logo */}
-          <a href="#" className="absolute left-1/2 -translate-x-1/2">
+          <Link to="/" className="absolute left-1/2 -translate-x-1/2">
             <span className="font-editorial text-2xl md:text-3xl tracking-[0.3em] uppercase text-foreground">
               Duain
             </span>
-          </a>
+          </Link>
 
           {/* Right nav */}
           <div className="flex items-center gap-6">
             <div className="hidden md:flex items-center gap-8">
               {navLinks.slice(3).map((link) => (
-                <a
-                  key={link}
-                  href="#"
+                <Link
+                  key={link.label}
+                  to={link.to}
                   className="text-xs tracking-[0.2em] uppercase text-foreground/70 hover:text-foreground transition-colors duration-400 gold-underline"
                 >
-                  {link}
-                </a>
+                  {link.label}
+                </Link>
               ))}
             </div>
             <div className="flex items-center gap-4">
+              <button
+                onClick={toggleRamadan}
+                className="text-foreground/60 hover:text-accent transition-colors duration-300"
+                title={isRamadan ? "Day Mode" : "Ramadan Mode"}
+              >
+                {isRamadan ? <Sun size={18} strokeWidth={1} /> : <Moon size={18} strokeWidth={1} />}
+              </button>
               <button className="text-foreground/60 hover:text-foreground transition-colors duration-300">
                 <Search size={18} strokeWidth={1} />
               </button>
@@ -95,17 +110,20 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col items-center justify-center h-[calc(100vh-64px)] gap-10">
               {navLinks.map((link, i) => (
-                <motion.a
-                  key={link}
-                  href="#"
+                <motion.div
+                  key={link.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1, duration: 0.4 }}
-                  className="font-editorial text-3xl tracking-[0.2em] uppercase text-foreground/80 hover:text-foreground gold-underline"
-                  onClick={() => setMenuOpen(false)}
                 >
-                  {link}
-                </motion.a>
+                  <Link
+                    to={link.to}
+                    className="font-editorial text-3xl tracking-[0.2em] uppercase text-foreground/80 hover:text-foreground gold-underline"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </motion.div>
